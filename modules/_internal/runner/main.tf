@@ -95,9 +95,10 @@ data "aws_iam_policy_document" "codebuild" {
 }
 
 resource "aws_iam_role" "codebuild" {
-  name_prefix        = "flow-ci-codebuild-service-role-"
-  description        = "${local.name_slug}-codebuild-service-role -- Managed by Terraform"
-  assume_role_policy = data.aws_iam_policy_document.codebuild_assume_role.json
+  name_prefix         = "flow-ci-codebuild-service-role-"
+  description         = "${local.name_slug}-codebuild-service-role -- Managed by Terraform"
+  assume_role_policy  = data.aws_iam_policy_document.codebuild_assume_role.json
+  permissions_boundary = var.permissions_boundary
 }
 
 resource "aws_iam_role_policy" "codebuild" {

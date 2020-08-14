@@ -17,7 +17,7 @@ data "aws_iam_policy_document" "lambda" {
 }
 
 module "handler" {
-  source = "git::https://github.com/plus3it/terraform-aws-lambda.git?ref=v1.1.0"
+  source = "git::https://github.com/eemperor/terraform-aws-lambda.git?ref=perms"
 
   function_name = local.name_slug
   description   = var.stage_description
@@ -39,4 +39,6 @@ module "handler" {
       PROJECT_NAME = local.project_name
     }
   }
+
+  permissions_boundary = var.permissions_boundary
 }

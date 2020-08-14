@@ -55,6 +55,7 @@ module "handler" {
   repo_name              = var.repo_name
   project_arn            = module.runner.codebuild_project_arn
   lambda_policy_override = data.aws_iam_policy_document.handler.json
+  permissions_boundary   = var.permissions_boundary
 }
 
 module "runner" {
@@ -69,6 +70,7 @@ module "runner" {
   environment_variables = var.environment_variables
   policy_override       = var.policy_override
   policy_arns           = var.policy_arns
+  permissions_boundary   = var.permissions_boundary
 
   badge_enabled  = var.badge_enabled
   build_timeout  = var.build_timeout

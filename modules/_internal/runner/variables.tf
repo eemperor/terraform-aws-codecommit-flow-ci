@@ -77,3 +77,9 @@ variable "policy_override" {
   type        = string
   description = "IAM policy document in JSON that extends the basic inline CodeBuild service role"
 }
+
+variable "permissions_boundary" {
+  type        = string
+  description = "ARN of permissions boundary to assign to role"
+  default     = null
+}

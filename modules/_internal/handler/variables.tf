@@ -28,3 +28,9 @@ variable "lambda_policy_override" {
   description = "IAM policy document in JSON that extends the Lambda service role"
   default     = ""
 }
+
+variable "permissions_boundary" {
+  type        = string
+  description = "ARN of permissions boundary to apply to role"
+  default     = null 
+}
